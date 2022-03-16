@@ -14,13 +14,13 @@
       </div>
     </div>
   </div>
-  <div>
+  <div class="btn-wrapper col-10 mx-auto">
   <% if user_signed_in? %>
-    <li>
-      <%= link_to "Log in", user_path %>
+    <div class="row">
+      <%= link_to "Log in", user_path(current_user.id) %><!--ホーム画面へ-->
     </li>
     <li>
-      <%= link_to "Sign up", user_path %>
+      <%= link_to "Sign up", user_path(current_user.id) %><!--ホーム画面へ-->
     </li>
   <% else %>
     <li>
