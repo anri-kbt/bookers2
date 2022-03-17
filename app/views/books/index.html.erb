@@ -1,29 +1,26 @@
 <div class="container px-5 px-sm-0">
   <div class="row">
     <!--部分テンプレート-->
-　　<%= render 'users/info', books: @books,user:@user %>
-
-
+    <div class="col-md-3">
+　　<%= render 'users/info', books: @books,user: @user %>
+　　</div>
+    <!--bookの一覧画面-->
     <div class="col-md-8 offset-md-1">
       <h2>Books</h2>
-      <%@books.each do |book| %>
-      <table class="table table-hover table-inverse">
-        <thead>
+      <thead>
           <tr>
             <th></th>
             <th>Title</th>
             <th>Opinion</th>
             <th colspan="3"></th>
           </tr>
-        </thead>
+      </thead>
+      <% @books.each do |book| %>
+      <table class="table table-hover table-inverse">
         <tbody>
           <tr>
             <td>
-              <% if user.image %>
-                <%= image_tag book.user.get_profile_image(40,40) %>
-              <% else %>
-                <%= image_tag "assets/images/no_image.jpg" %>
-              <% end %>
+              <%= image_tag @user.get_profile_image(40,40) %>
             </td>
             <td>
               <%= link_to book_path%>
@@ -35,11 +32,7 @@
           </tr>
         </tbody>
       </table>
+      <%end%>
     </div>
   </div>
 </div>
-
-
-
-<%end%>
-
