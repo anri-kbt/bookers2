@@ -7,6 +7,7 @@
     <!--bookの一覧画面-->
     <div class="col-md-8 offset-md-1">
       <h2>Books</h2>
+      <table class="table table-hover table-inverse">
       <thead>
           <tr>
             <th></th>
@@ -16,23 +17,21 @@
           </tr>
       </thead>
       <% @books.each do |book| %>
-      <table class="table table-hover table-inverse">
         <tbody>
           <tr>
             <td>
               <%= image_tag @user.get_profile_image(40,40) %>
             </td>
             <td>
-              <%= link_to book_path%>
-              <span><%=books.title%></span>
+              <span><%= link_to "#{book.title}", book_path(book.id)%></span>
             </td>
             <td>
-              <span><%=books.body%></span>
+              <span><%=book.body%></span>
             </td>
           </tr>
         </tbody>
+        <%end%>
       </table>
-      <%end%>
     </div>
   </div>
 </div>

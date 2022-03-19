@@ -1,11 +1,6 @@
-    
-      <h2>User Info</h2>
-      <% if user.profile_image.attached? %>
-        <%= image_tag user.get_profile_image(63,63) %>
-      <% else %>
-        <%#= image_tag 'app/assets/images/no_image.jpg' %>
-      <% end %>
 
+      <h2>User Info</h2>
+      <%= image_tag user.get_profile_image(63,63) %>
       <table class="table">
         <tbody>
           <tr></tr>
@@ -15,7 +10,7 @@
           </tr>
           <tr>
             <th>introduction</th>
-            <th></th>
+            <th><%=user.introduction%></th>
           </tr>
         </tbody>
       </table>
@@ -26,7 +21,7 @@
       <%=form_with model: books,url:'/books',method: :post do |f|%>
 
       <%# if books.errors.any? %>
-        <%#=books.errors.count %><%#error prohibited this book from being saved:%><br/>
+        <%#=books.errors.count %><%#error prohibited this book from being saved%><br/>
         <ul>
         <%#books.errors.full_messages.each do |message|%>
           <li><%#=message%></li>

@@ -1,2 +1,36 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <!--部分テンプレート-->
+    <div class="col-md-3">
+　　<%= render 'users/info', books: @books,user: @user %>
+　　</div>
+    <!--userの一覧画面-->
+    <div class="col-md-8 offset-md-1">
+      <h2>Users</h2>
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr>
+            <th>image</th>
+            <th>name</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <% @users.each do |book| %>
+        <tbody>
+          <tr>
+            <td>
+              <%= image_tag @user.get_profile_image(40,40) %>
+            </td>
+            <td>
+              <span><%=@users.name%></span>
+            </td>
+            <td>
+              <span><%=link_to "Show" , user_path(book.id) %></span>
+            </td>
+          </tr>
+        </tbody>
+        <%end%>
+      </table>
+    </div>
+  </div>
+</div>
