@@ -2,12 +2,13 @@ class UsersController < ApplicationController
   def index
     @users=User.all
     @user=current_user
-    #@books=@users.books
+    @book=Book.all
+    #@user=@book.user
   end
 
   def show
     @user=User.find(params[:id])
-    @books=@user.books
+    @books=@user.books #特定のユーザ（@user）に関連付けられた投稿全て（.books）を取得し@booksに渡す
   end
 
   def edit
