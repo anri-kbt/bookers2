@@ -1,0 +1,12 @@
+<% if name.errors.any? %>
+  <div class="text-danger">
+    <h3>
+    <%=name.errors.count %>error prohibited this obj from being saved<br/>
+    </h3>
+    <ul>
+      <%name.errors.full_messages.each do |message|%>
+      <li><%=message%></li>
+      <%end%>
+    </ul>
+  </div>
+<%end%>

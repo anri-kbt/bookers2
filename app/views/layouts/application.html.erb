@@ -25,10 +25,7 @@
             <% if user_signed_in? %>
               <li>
                 <%=link_to ("user_path(current_user.id)") do %>
-                <i class="fas fa-home nav-link text-light">
-                  ::before
-                  Home
-                </i>
+                <i class="fas fa-home nav-link text-light"></i>
                 <%end%>
               </li>
               <li>
@@ -60,6 +57,7 @@
       </nav>
     </header>
     <main>
+      <font color="green"><%=flash[:notice]%></font>
       <%= yield %>
     </main>
 

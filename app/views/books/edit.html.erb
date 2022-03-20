@@ -1,28 +1,26 @@
-<h1>Editing book</h1>
-<%=form_with model:@book do |f|%>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h1>Editing book</h1>
+      <%= render 'layouts/error', name: @book %>
 
-<% if @book.errors.any? %>
-  <%=@book.errors.count %>error prohibited this book from being saved:<br/>
-  <ul>
-    <%@book.errors.full_messages.each do |message|%>
+      <%=form_with model:@book do |f|%>
 
-      <li><%=message%></li>
+      <div class="form-group">
+        <label for="book_title">Title</label><br/>
+        <%= f.text_field :title ,:class=>"form-control"%>
+      </div>
+      <div class="form-group">
+        <label for="book_opinion">Opinion</label><br/>
+        <%= f.text_area :body ,:class=>"form-control"%>
+      </div>
+      <div class="form-group">
+      <%= f.submit "Update Book",class:"btn btn-success" %>
+      </div>
+
+    <%=link_to 'Show',book_path%> | <%=link_to 'Back',books_path%>
+
     <%end%>
-  </ul>
- <%end%>
-
-<div class="field">
-  <label for="book_title">Title</label><br/>
-  <%= f.text_field :title %>
+    </div>
+  </div>
 </div>
-<div class="field">
-  <label for="book_body">Opinion</label><br/>
-  <%= f.text_area :body %>
-</div>
-<div class="actions">
-  <%= f.submit "Update Book"%>
-</div>
-
- <%=link_to 'Show',book_path%> | <%=link_to 'Back',books_path%>
-
-<%end%>
