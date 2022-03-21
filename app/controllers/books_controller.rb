@@ -1,9 +1,9 @@
 class BooksController < ApplicationController
   def index
-    @books=Book.all
+    @books=Book.all #すべてのBookを取得
     @book=Book.new
     @user=current_user
-    @users=@book.user
+    @users=@book.user #Bookに紐づいているユーザー情報を@usersに代入
   end
 
   def create
@@ -29,7 +29,7 @@ class BooksController < ApplicationController
     if @book.user==current_user
       render :edit
     else
-      redirect_to book_path(@book.id)
+      redirect_to books_path
     end
   end
 

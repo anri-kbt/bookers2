@@ -15,7 +15,11 @@
               <%=link_to "#{@user.name}",user_path(@user.id)%>
             </td>
             <td>
+              <% if @user.id == current_user.id %>
               <span><%= link_to "#{@books.title}", book_path%></span>
+              <%else%>
+              <span><%= link_to "#{@books.title}", book_path%></span>
+              <% end %>
             </td>
             <td>
               <span><%=@books.body%></span>
@@ -23,7 +27,9 @@
             <td>
             <% if @user.id == current_user.id %>
             <td><%= link_to 'Edit', edit_book_path(@books),class:"btn btn-sm btn-success" %> </td>
-            <td><%= link_to "delete", book_path(@books), method: :delete, "data-confirm"=>"本当に消しますか?",class:"btn btn-sm btn-danger"%></td>
+            <td><%= link_to "Destroy", book_path(@books), method: :delete, "data-confirm"=>"本当に消しますか?",class:"btn btn-sm btn-danger"%></td>
+            <%else%>
+              <%link_to book_path(@books)%>
             <% end %>
             </td>
           </tr>
